@@ -1,0 +1,91 @@
+.nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin-top: 2rem;
+    margin-bottom: 5rem;
+    height: 70vh;
+
+    &__container {
+        display: flex;
+        justify-content: space-evenly;
+        flex-wrap: wrap;
+        width: 70%;
+    }
+
+    &__link {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 22rem;
+        width: 26%;
+        transition: all .2s;
+        cursor: pointer;
+
+        &:hover {
+            transform: scale(1.1);
+            color: rgb(13, 133, 13);
+        }
+
+        &-selection {
+            background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('assets/house-preview.jpg');
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            transition: all .2s;
+
+            &:hover {
+                background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)), url('assets/house-preview.jpg');
+            }
+        }
+
+        &-attractions {
+            background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('assets/countryside.jpg');
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+
+            &:hover {
+                background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)), url('assets/countryside.jpg');
+            }
+        }
+
+        &-availability {
+            background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('assets/hotel.svg');
+            background-position: center;
+            background-repeat: no-repeat;
+
+            &:hover {
+                background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)), url('assets/hotel.svg');
+            }
+        }
+
+        &-about {
+            background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('assets/family.jpg');
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            margin-top: 6rem;
+
+            &:hover {
+                background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)), url('assets/family.jpg');
+            }
+        }
+
+        &-reviews {
+            background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('assets/reviews.jpg');
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            margin-top: 6rem;
+
+            &:hover {
+                background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)), url('assets/reviews.jpg');
+            }
+        }
+    }
+
+    
+
+}

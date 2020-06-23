@@ -1,7 +1,7 @@
 <template>
   <div class="banner">
       <div class="banner__logo">
-          <img src="#">
+          <span>LS</span>
       </div>
       <div class="banner__name">
           <h1>Love Shack</h1>
