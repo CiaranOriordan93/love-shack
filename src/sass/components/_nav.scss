@@ -34,6 +34,7 @@
             background-repeat: no-repeat;
             background-size: cover;
             transition: all .2s;
+            
 
             &:hover {
                 background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)), url('assets/house-preview.jpg');
@@ -52,12 +53,13 @@
         }
 
         &-availability {
-            background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('assets/hotel.svg');
+            background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('assets/rooms-for-rent.jpg');
             background-position: center;
             background-repeat: no-repeat;
+            background-size: cover;
 
             &:hover {
-                background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)), url('assets/hotel.svg');
+                background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)), url('assets/rooms-for-rent.jpg');
             }
         }
 

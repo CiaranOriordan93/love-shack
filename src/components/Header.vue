@@ -4,7 +4,9 @@
             <h2 class="header__text__h2">Book your Love Shack cottage now!</h2>
         </div>
         <div class="header__book-now">
-            <button class="header__book-now__btn">Book Now</button>
+            <router-link to="/booking">
+                <button class="header__book-now__btn">Book Now</button>
+            </router-link>
         </div>
     </div>
 </template>
