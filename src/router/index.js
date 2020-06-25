@@ -7,6 +7,7 @@ import Reviews from '../views/Reviews.vue'
 import Story from '../views/Story.vue'
 import Villas from '../views/Villas.vue'
 import Booking from '../views/Booking.vue'
+import Info from '../views/Info.vue'
 
 Vue.use(VueRouter)
 
@@ -20,6 +21,11 @@ const routes = [
     path: '/selection',
     name: 'selection',
     component: Villas
+  },
+  {
+    path: '/selection/:id',
+    name: 'info',
+    component: Info
   },
   {
     path: '/local-attractions',

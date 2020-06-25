@@ -1,8 +1,10 @@
 import Vue from 'vue'
+import VueCarousel from '@chenfengyuan/vue-carousel'
 import App from './App.vue'
 import router from './router'
 
-Vue.config.productionTip = false
+Vue.config.productionTip = false;
+Vue.use(VueCarousel);
 
 new Vue({
   router,
