@@ -1,0 +1,24 @@
+.story {
+    color: black;
+    display: flex;
+
+    &__info {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 10rem;
+
+        &__img {
+            height: 40rem;
+
+            & img {
+                max-height: 100%;
+            }
+        }
+
+        &__text {
+            width: 75%;
+            margin-top: 5rem;
+        }
+    }
+}
