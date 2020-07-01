@@ -20,8 +20,8 @@
           </div>
           <div class="info__cottage__priceing">
                 <ul>
-                  <li>Price per Night:</li>
-                  <li>Price per Week:</li>
+                  <li>Price per Night: {{ nightlyPrice }}</li>
+                  <li>Price per Week: {{ weeklyPrice }}</li>
                 </ul>
           </div>
       </div>
@@ -35,20 +35,31 @@
 
 <script>
 import Banner from '../components/Banner'
+import api from '../services/api.js'
 
 export default {
     components: {
         Banner
-    },
+    },         
     data() {
         return {
             data: [
                 '<div class="info__gallery__carousel info__img-1"></div>',
                 '<div class="info__gallery__carousel info__img-2"></div>',
                 '<div class="info__gallery__carousel info__img-3"></div>',
-            ]
+            ],
+            nightlyPrice: 0,
+            weeklyPrice: 0,
         }
-    }
+    },
+    created() {
+        api.getPrices().then(response => {
+            this.nightlyPrice = response.data.pricePerNight;
+            this.weeklyPrice = response.data.pricePerWeek;
+            console.log(response);
+        })
+    },
+    
 }
 </script>
 
