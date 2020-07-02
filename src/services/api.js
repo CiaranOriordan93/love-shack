@@ -5,11 +5,11 @@ const apiClient = axios.create({
 })
 
 export default {
-    getPrices() {
-        return apiClient.get('/admin/prices')
+    getPrices(id) {
+        return apiClient.get(`/admin/prices/${id}`)
     },
     getReviews() {
-        return apiClient.get('/all_reviews')
+        return apiClient.get('/admin/reviews')
     },
     getAvailability() {
         return apiClient.get('/availability')

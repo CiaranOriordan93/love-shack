@@ -2,7 +2,7 @@
   <div class="villas">
     <Banner />
     <div class="villas__option">
-        <router-link to="selection/Drumboy">
+        <router-link to="selection/drumboy">
           <div class="villas__option__img-1">
           </div>
         </router-link>
@@ -21,7 +21,7 @@
     </div>
 
     <div class="villas__option">
-      <router-link to="selection/Foxfield">
+      <router-link to="selection/foxfield">
           <div class="villas__option__img-2">
           </div>
         </router-link>
@@ -40,7 +40,7 @@
     </div>
 
     <div class="villas__option">
-      <router-link to="selection/Cloone">
+      <router-link to="selection/cloone">
           <div class="villas__option__img-3">
           </div>
         </router-link>
@@ -59,7 +59,7 @@
     </div>
 
     <div class="villas__option">
-      <router-link to="selection/Annaduff">
+      <router-link to="selection/annaduff">
           <div class="villas__option__img-4">
           </div>
         </router-link>
@@ -78,7 +78,7 @@
     </div>
 
     <div class="villas__option">
-      <router-link to="selection/Aughnashelin">
+      <router-link to="selection/aughnashelin">
           <div class="villas__option__img-5">
           </div>
         </router-link>

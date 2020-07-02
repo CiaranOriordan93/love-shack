@@ -53,10 +53,9 @@ export default {
         }
     },
     created() {
-        api.getPrices().then(response => {
+        api.getPrices(this.$route.params.id).then(response => {
             this.nightlyPrice = response.data.pricePerNight;
             this.weeklyPrice = response.data.pricePerWeek;
-            console.log(response);
         })
     },
     
