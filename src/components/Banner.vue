@@ -4,7 +4,7 @@
           <span>LS</span>
       </div>
       <div class="banner__name">
-        <router-link to="/">
+        <router-link to="/" class="banner__a">
           <h1>Love Shack</h1>
         </router-link>
       </div>
