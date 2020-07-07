@@ -14,7 +14,16 @@ export default {
     getAvailability() {
         return apiClient.get('/availability')
     },
-    postBooking() {
-        return apiClient.post('/booking')
+    postBooking(name, arrival, departure) {
+        return apiClient.post('admin/add-booking',
+        {
+            data: {
+                name: name,
+                reservation: {
+                    arrivalDate: arrival,
+                    departureDate: departure
+                }
+            }
+        })
     }
 }

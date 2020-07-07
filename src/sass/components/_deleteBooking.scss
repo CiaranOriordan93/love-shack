@@ -1,0 +1,20 @@
+.del-booking {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 80%;
+    height: 30%;
+
+    &__button {
+        background-color: green;
+        border-radius: 5px;
+        padding: 2px;
+        transition: all .2s;
+        cursor: pointer;
+
+        &:active {
+            transform: scale(0.9);
+        }
+    }
+}

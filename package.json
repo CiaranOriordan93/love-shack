@@ -9,7 +9,9 @@
   },
   "dependencies": {
     "@chenfengyuan/vue-carousel": "^1.0.5",
+    "@fullcalendar/core": "^5.1.0",
     "@fullcalendar/daygrid": "^5.1.0",
+    "@fullcalendar/interaction": "^5.1.0",
     "@fullcalendar/vue": "^5.1.0",
     "axios": "^0.19.2",
     "core-js": "^3.6.5",

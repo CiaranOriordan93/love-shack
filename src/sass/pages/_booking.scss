@@ -6,8 +6,51 @@
     color: black;
     height: 100vh;
 
+    &__container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 80%;
+    }
+
     &__calendar {
+        margin-top: 5rem; 
+        width: 80%;
+    }
+
+    &__arrival {
+        &__confirm {
+            background-color: red;
+            border: 1px solid black;
+            border-radius: 5px;
+            margin-left: 3rem;
+            cursor: pointer;
+            transition: all .2s;
+
+            &:active {
+                transform: scale(0.9);
+            }
+        }
+    }
+
+    &__nav-tab {
+        display: flex;
+        width: 80%;
+        justify-content: flex-start;
         margin-top: 10rem;
-        width: 50%; 
+
+        &__btn {
+            margin-left: 5rem;
+            background-color: red;
+            border-radius: 5px;
+            border: 1px solid blue;
+            padding: 2px;
+            transition: all .2s;
+            cursor: pointer;
+
+            &:active {
+                transform: scale(0.9);
+            }
+        }
     }
 }
