@@ -6,10 +6,10 @@
       <button class="booking__nav-tab__btn" @click="displayType = true">Delete Booking</button>
     </div>
     <div class="booking__container">
-      <CreateBooking :arrivalDate="arrivalDate" :departureDate="departureDate" v-if="!displayType" />
+      <CreateBooking :arrivalDate="arrivalDate" :departureDate="departureDate" :refreshFn="refresh" v-if="!displayType" />
       <DeleteBooking v-if="displayType" />
       <div class="booking__calendar">
-        <FullCalendar :options="calendarOptions" />
+        <FullCalendar :options="calendarOptions"/>
       </div>
     </div>
   </div>
@@ -22,6 +22,7 @@ import interactionPlugin from '@fullcalendar/interaction';
 import Banner from '../components/Banner';
 import CreateBooking from '../components/CreateBooking';
 import DeleteBooking from '../components/DeleteBooking';
+import api from '../services/api';
 
 export default {
   components: {
@@ -35,8 +36,8 @@ export default {
       calendarOptions: {
         plugins: [dayGridPlugin, interactionPlugin],
         initialView: 'dayGridMonth',
-        selectable: true,
-        dateClick: this.handleDateClick
+        dateClick: this.handleDateClick,
+        events: []
       },
       arrivalDate: '',
       departureDate: '',
@@ -48,7 +49,19 @@ export default {
       if (!this.confirmArrivalButton) {
         this.arrivalDate = info.dateStr;
       }else this.departureDate = info.dateStr;
+    },
+    refresh() {
+      api.getBookings().then(result => {
+        this.calendarOptions.events = result.data.bookings;
+      })
+      .catch(error => console.log(error));
     }
+  },
+  created() {
+      api.getBookings().then(result => {
+        this.calendarOptions.events = result.data.bookings;
+      })
+      .catch(error => console.log(error))
   }
 }
 </script>

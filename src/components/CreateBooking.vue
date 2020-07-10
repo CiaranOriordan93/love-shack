@@ -20,7 +20,11 @@
 import api from '../services/api'
 
 export default {
-    props: ["arrivalDate", "departureDate"],
+    props: {
+        arrivalDate: String,
+        departureDate: String,
+        refreshFn: Function
+    },
     data() {
         return {
             bookingName: '',
@@ -40,6 +44,7 @@ export default {
         makeBooking(name, arrival, departure) {
             api.postBooking(name, arrival, departure).then(response => {
                 console.log(response);
+                this.refreshFn();
             })
             .catch(error => console.log(error));
         }
