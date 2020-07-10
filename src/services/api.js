@@ -11,8 +11,8 @@ export default {
     getReviews() {
         return apiClient.get('/admin/reviews')
     },
-    getAvailability() {
-        return apiClient.get('/availability')
+    getBookings() {
+        return apiClient.get('/admin/get-booking')
     },
     postBooking(name, arrival, departure) {
         return apiClient.post('admin/add-booking',
