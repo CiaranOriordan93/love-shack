@@ -4,6 +4,7 @@ Currently Front and backend are connected and succesfully sending data from fron
 
 Current goals with app -
   - Building api on server to handle delete requests from front end.
+  - Make calendar re-render after booking confirmed.
   - Configuring the front end api calls to correctly connect and delete appropriate data.
   - Research Oauth and implement some version of it on the front end and server side for security.
   - Go over the entire front ends design and refactor 90% of the site.
