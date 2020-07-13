@@ -8,8 +8,7 @@
 
     &__container {
         display: flex;
-        justify-content: center;
-        align-items: center;
+        align-items: flex-start;
         width: 80%;
     }
 
@@ -18,32 +17,17 @@
         width: 80%;
     }
 
-    &__arrival {
-        &__confirm {
-            background-color: red;
-            border: 1px solid black;
-            border-radius: 5px;
-            margin-left: 3rem;
-            cursor: pointer;
-            transition: all .2s;
-
-            &:active {
-                transform: scale(0.9);
-            }
-        }
-    }
-
     &__nav-tab {
         display: flex;
-        width: 80%;
+        width: 62%;
         justify-content: flex-start;
         margin-top: 10rem;
 
         &__btn {
             margin-left: 5rem;
-            background-color: red;
+            background-color: rgba(240, 51, 51, 0.884);
             border-radius: 5px;
-            border: 1px solid blue;
+            border: 1px solid rgba(226, 226, 226, 0.445);
             padding: 2px;
             transition: all .2s;
             cursor: pointer;
@@ -53,4 +37,17 @@
             }
         }
     }
+}
+
+.seperator {
+    position: absolute;
+    top: 14rem;
+    left: 0;
+    height: 2px;
+    width: 100%;
+    background-image: radial-gradient(
+            circle,
+            rgba(210, 208, 208, 0.5) 70%,
+            rgba(210, 208, 208, 0) 90%
+            );
 }

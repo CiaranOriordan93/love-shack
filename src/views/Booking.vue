@@ -5,6 +5,7 @@
       <button class="booking__nav-tab__btn" @click="displayType = false">Create Booking</button>
       <button class="booking__nav-tab__btn" @click="displayType = true">Delete Booking</button>
     </div>
+    <div class="seperator"></div>
     <div class="booking__container">
       <CreateBooking :arrivalDate="arrivalDate" :departureDate="departureDate" :refreshFn="refresh" v-if="!displayType" />
       <DeleteBooking v-if="displayType" />

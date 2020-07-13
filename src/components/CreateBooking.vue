@@ -12,7 +12,10 @@
         <span class="regular-span create-booking__span">Select your departure date</span>
         <input v-model="departure" type="date" class="create-booking__date" />
       </div>
-      <button class="create-booking__button" @click="makeBooking(bookingName, arrival, departure)">Confirm Booking</button>
+      <button class="create-booking__button" @click="makeBooking(bookingName, arrival, departure), confirmationMessage()">Confirm Booking</button>
+      <div v-if="confirmation" class="create-booking__confirmation">
+          <span class="create-booking__confirm-message">Booking successfully made!</span>
+      </div>
   </div>
 </template>
 
@@ -29,7 +32,8 @@ export default {
         return {
             bookingName: '',
             arrival: '',
-            departure: ''
+            departure: '',
+            confirmation: false
         }
     },
     watch: {
@@ -47,6 +51,13 @@ export default {
                 this.refreshFn();
             })
             .catch(error => console.log(error));
+        },
+        confirmationMessage() {
+            this.confirmation = true;
+            const self = this;
+            setTimeout(function() {
+                self.confirmation = false;
+            }, 3000);
         }
     }
 }

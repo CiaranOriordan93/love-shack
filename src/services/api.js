@@ -14,11 +14,19 @@ export default {
     getBookings() {
         return apiClient.get('/admin/get-booking')
     },
+    deleteBooking(name, date) {
+        return apiClient.delete('/admin/delete-booking', {
+            data: {
+                name,
+                date
+            }
+        })
+    },
     postBooking(name, arrival, departure) {
         return apiClient.post('admin/add-booking',
         {
             data: {
-                name: name,
+                name,
                 reservation: {
                     arrivalDate: arrival,
                     departureDate: departure

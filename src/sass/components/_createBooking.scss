@@ -5,6 +5,9 @@
     justify-content: space-evenly;
     width: 80%;
     height: 40%;
+    margin-right: 2rem;
+    margin-top: 12rem;
+    background-color: rgba(226, 226, 226, 0.445);
 
     &__span {
         margin-right: 1rem;
@@ -29,5 +32,9 @@
         &:active {
             transform: scale(0.9);
         }
+    }
+
+    &__confirm-message {
+        color: #0d850d;
     }
 }
