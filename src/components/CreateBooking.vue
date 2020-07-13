@@ -46,7 +46,7 @@ export default {
     },
     methods: {
         makeBooking(name, arrival, departure) {
-            api.postBooking(name, arrival, departure).then(response => {
+            api.postBooking(name, arrival, departure).then(() => {
                 this.refreshFn();
             })
         },

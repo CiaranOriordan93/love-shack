@@ -25,13 +25,11 @@ export default {
     },
     methods: {
       deleteBooking() {
-        api.deleteBooking(this.bookingName, this.arrivalDate).then(result => {
-        })
+        api.deleteBooking(this.bookingName, this.arrivalDate);
       }
     }
 }
 </script>
 
 <style>
-
 </style>
