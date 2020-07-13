@@ -8,6 +8,7 @@
         <span class="regular-span create-booking__span">Enter the arrival date of your booking</span>
         <input v-model="arrivalDate" type="date" class="del-booking__date" />
       </div>
+      <div></div>
       <button class="del-booking__button" @click="deleteBooking">Confirm delete</button>
   </div>
 </template>
