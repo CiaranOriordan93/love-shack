@@ -26,8 +26,7 @@ export default {
     methods: {
       deleteBooking() {
         api.deleteBooking(this.bookingName, this.arrivalDate).then(result => {
-            console.log(result);
-        }).catch(error => console.log(error));
+        })
       }
     }
 }

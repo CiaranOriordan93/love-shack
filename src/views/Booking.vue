@@ -55,14 +55,12 @@ export default {
       api.getBookings().then(result => {
         this.calendarOptions.events = result.data.bookings;
       })
-      .catch(error => console.log(error));
     }
   },
   created() {
       api.getBookings().then(result => {
         this.calendarOptions.events = result.data.bookings;
       })
-      .catch(error => console.log(error))
   }
 }
 </script>

@@ -47,10 +47,8 @@ export default {
     methods: {
         makeBooking(name, arrival, departure) {
             api.postBooking(name, arrival, departure).then(response => {
-                console.log(response);
                 this.refreshFn();
             })
-            .catch(error => console.log(error));
         },
         confirmationMessage() {
             this.confirmation = true;
