@@ -1,16 +1,20 @@
 .review {
     display: flex;
-    justify-content: center;
+    justify-content: space-evenly;
     align-items: center;
     color: black;
-    border: 1px solid blue;
+    padding: 1rem;
+    border-radius: 1rem;
 
     &__img {
+        display: flex;
+        justify-content: center;
+        align-items: center;
         height: 10rem;
-        width: 10rem;
+        min-width: 10rem;
 
         & img {
-            max-height: 100%;
+            max-height: 5rem;
         }
     }
 
@@ -18,9 +22,11 @@
         display: flex;
         flex-direction: column;
         align-items: flex-start;
+        width: 100%;
 
         &__details {
             margin-bottom: 1rem;
+            border-bottom: 1px solid black;
 
             &__list {
                 display: flex;
@@ -29,4 +35,16 @@
             }
         }
     }
+}
+
+.negative {
+    background-color: red;
+}
+
+.positive {
+    background-color: #0d850d;
+}
+
+.middle {
+    background-color: orange;
 }

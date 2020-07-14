@@ -2,7 +2,7 @@
   <div class="reviews">
     <Banner />
     <div class="reviews__review">
-      <Review v-for="(review, key) in review" :key="key" :date="review.dateOfArrival" :name="review.name" :home="review.house" :rating="review.rating" :text="review.content"/>
+      <Review v-for="(review, key) in review" :key="key" :review="review"/>
     </div>
   </div>
 </template>

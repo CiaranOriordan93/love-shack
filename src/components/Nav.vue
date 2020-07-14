@@ -10,10 +10,6 @@
           <h3>Local Attractions</h3>
       </router-link>
 
-      <router-link to="availability" class="nav__link nav__link-availability">
-          <h3>Availability</h3>
-      </router-link>
-
       <router-link to="our-story" class="nav__link nav__link-about">
             <h3>Our Story</h3>
       </router-link>

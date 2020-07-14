@@ -2,9 +2,13 @@
     display: flex;
     justify-content: center;
     width: 100%;
+    height: 130vh;
 
     &__review {
-        margin-top: 10rem;
-        width: 75%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        margin-top: 8rem;
+        width: 60%;
     }
 }
