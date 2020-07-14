@@ -3,8 +3,8 @@
     <Banner />
     <div class="attractions__nav bg-1">
         <h3 class="attractions__nav__heading">Attractions of Ireland</h3>
-        <div class="attractions__nav__img">
-          <img src="../assets/ireland_pic.jpg">
+        <div class="attractions__nav__img" ref="divAsTarget">
+          <img v-lazy="imgs.ireland">
         </div>
         <div class="attractions__nav__links">
           <ul class="attractions__nav__list">
@@ -19,7 +19,7 @@
       <div class="attractions__location bg-2">
         <h3>The Wild Atlantic Way</h3>
         <div class="attractions__location__img">
-          <img src="../assets/WAW.jpg">
+          <img v-lazy="imgs.wildAtlanticWay">
         </div>
         <div class="attractions__location__text">
           <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
@@ -35,7 +35,7 @@
       <div class="attractions__location bg-1">
         <h3>The Giants Causeway</h3>
         <div class="attractions__location__img">
-          <img src="../assets/giants-causeway.jpg">
+          <img v-lazy="imgs.giantsCauseway">
         </div>
         <div class="attractions__location__text">
           <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
@@ -51,7 +51,7 @@
       <div class="attractions__location bg-2">
         <h3>Tayto Park</h3>
         <div class="attractions__location__img">
-          <img src="../assets/tayto-park.jpg">
+          <img v-lazy="imgs.taytoPark">
         </div>
         <div class="attractions__location__text">
           <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
@@ -67,7 +67,7 @@
       <div class="attractions__location bg-1">
         <h3>Cliffs of Moher</h3>
         <div class="attractions__location__img">
-          <img src="../assets/cliffs-moher.jpg">
+          <img v-lazy="imgs.cliffsOfMoher">
         </div>
         <div class="attractions__location__text">
           <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
@@ -85,10 +85,22 @@
 </template>
 
 <script>
-import Banner from '../components/Banner'
+import Banner from '../components/Banner';
+
 export default {
   components: {
     Banner
+  },
+  data() {
+    return {
+      imgs: {
+        ireland: require("../assets/ireland_pic.jpg"),
+        wildAtlanticWay: require("../assets/WAW.jpg"),
+        giantsCauseway: require("../assets/giants-causeway.jpg"),
+        cliffsOfMoher: require("../assets/cliffs-moher.jpg"),
+        taytoPark: require("../assets/tayto-park.jpg")
+      }
+    }
   }
 }
 </script>

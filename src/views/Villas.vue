@@ -3,7 +3,8 @@
     <Banner />
     <div class="villas__option">
         <router-link to="selection/drumboy">
-          <div class="villas__option__img-1">
+          <div class="villas__option__container-1">
+            <img class="villas__option__container-1-img" v-lazy="imgs.drumboy">
           </div>
         </router-link>
           
@@ -22,7 +23,8 @@
 
     <div class="villas__option">
       <router-link to="selection/foxfield">
-          <div class="villas__option__img-2">
+          <div class="villas__option__container-2">
+            <img class="villas__option__container-2-img" v-lazy="imgs.foxfield">
           </div>
         </router-link>
 
@@ -41,7 +43,8 @@
 
     <div class="villas__option">
       <router-link to="selection/cloone">
-          <div class="villas__option__img-3">
+          <div class="villas__option__container-3">
+            <img class="villas__option__container-3-img" v-lazy="imgs.cloone">
           </div>
         </router-link>
 
@@ -60,7 +63,8 @@
 
     <div class="villas__option">
       <router-link to="selection/annaduff">
-          <div class="villas__option__img-4">
+          <div class="villas__option__container-4">
+            <img class="villas__option__container-4-img" v-lazy="imgs.annaduff">
           </div>
         </router-link>
 
@@ -79,7 +83,8 @@
 
     <div class="villas__option">
       <router-link to="selection/aughnashelin">
-          <div class="villas__option__img-5">
+          <div class="villas__option__container-5">
+            <img class="villas__option__container-5-img" v-lazy="imgs.aughnashelin">
           </div>
         </router-link>
 
@@ -108,6 +113,17 @@ export default {
   components: {
     Banner,
     Footer
+  },
+  data() {
+    return {
+      imgs: {
+        drumboy: require("../assets/house-outside.jpg"),
+        foxfield: require("../assets/house-outside-2.jpg"),
+        cloone: require("../assets/house-outside-3.jpg"),
+        annaduff: require("../assets/house-outside-4.jpg"),
+        aughnashelin: require("../assets/house-outside-5.jpg")
+      }
+    }
   }
 }
 </script>

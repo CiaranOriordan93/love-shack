@@ -3,7 +3,7 @@
     <Banner />
     <div class="story__info">
         <div class="story__info__img">
-          <img src="../assets/family-1.jpg">
+          <img v-lazy="imgs.family">
         </div>
         <div class="story__info__text">
           <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
@@ -29,6 +29,13 @@ import Banner from '../components/Banner'
 export default {
   components: {
     Banner
+  },
+  data() {
+    return {
+      imgs: {
+        family: require("../assets/family-1.jpg")
+      }
+    }
   }
 }
 </script>
