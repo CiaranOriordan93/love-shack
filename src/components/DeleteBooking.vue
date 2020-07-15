@@ -31,7 +31,7 @@ export default {
       deleteBooking() {
         api.deleteBooking(this.bookingName, this.arrivalDate, this.home).then(() => {
           this.refreshFn();
-        }).catch(error => console.log(error));
+        })
       }
     }
 }
