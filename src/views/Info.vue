@@ -7,7 +7,7 @@
 
       <div class="info__cottage">
           <div class="info__cottage__heading">
-            <h3>House Name</h3>
+            <h3>{{ $route.params.id }}</h3>
           </div>
           <div class="info__cottage__text">
               <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit,

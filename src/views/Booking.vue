@@ -2,13 +2,24 @@
   <div class="booking">
     <Banner />
     <div class="booking__nav-tab">
+      <form class="booking__form" @submit.prevent>
+        <label for="booking__form__homes">
+          <select id="booking__form__homes" class="booking__form__select" v-model="selectedHome">
+            <option
+              v-for="(home, index) in homes"
+              :key="index">
+              {{ home }}
+            </option>
+          </select>
+        </label>
+      </form>
       <button class="booking__nav-tab__btn" @click="displayType = false">Create Booking</button>
       <button class="booking__nav-tab__btn" @click="displayType = true">Delete Booking</button>
     </div>
     <div class="seperator"></div>
     <div class="booking__container">
-      <CreateBooking :arrivalDate="arrivalDate" :departureDate="departureDate" :refreshFn="refresh" v-if="!displayType" />
-      <DeleteBooking v-if="displayType" />
+      <CreateBooking :arrivalDate="arrivalDate" :departureDate="departureDate" :home="selectedHome" :refreshFn="refresh" v-if="!displayType" />
+      <DeleteBooking v-if="displayType" :refreshFn="refresh" :home="selectedHome" />
       <div class="booking__calendar">
         <FullCalendar :options="calendarOptions"/>
       </div>
@@ -42,7 +53,14 @@ export default {
       },
       arrivalDate: '',
       departureDate: '',
-      displayType: false
+      displayType: false,
+      selectedHome: 'Drumboy',
+      homes: ['Drumboy', 'Foxfield', 'Cloone', 'Annaduff', 'Aughnashelin']
+    }
+  },
+  watch: {
+    selectedHome: function() {
+      this.refresh();
     }
   },
   methods: {
@@ -52,13 +70,13 @@ export default {
       }else this.departureDate = info.dateStr;
     },
     refresh() {
-      api.getBookings().then(result => {
+      api.getBookings(this.selectedHome).then(result => {
         this.calendarOptions.events = result.data.bookings;
       })
     }
   },
   created() {
-      api.getBookings().then(result => {
+      api.getBookings(this.selectedHome).then(result => {
         this.calendarOptions.events = result.data.bookings;
       })
   }

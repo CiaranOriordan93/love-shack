@@ -11,22 +11,24 @@ export default {
     getReviews() {
         return apiClient.get('/admin/reviews')
     },
-    getBookings() {
-        return apiClient.get('/admin/get-booking')
+    getBookings(home) {
+        return apiClient.get(`/admin/get-booking/${home}`)
     },
-    deleteBooking(name, date) {
+    deleteBooking(name, date, home) {
         return apiClient.delete('/admin/delete-booking', {
             data: {
                 name,
-                date
+                date,
+                home
             }
         })
     },
-    postBooking(name, arrival, departure) {
+    postBooking(name, arrival, departure, home) {
         return apiClient.post('admin/add-booking',
         {
             data: {
                 name,
+                home,
                 reservation: {
                     arrivalDate: arrival,
                     departureDate: departure

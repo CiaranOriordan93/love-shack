@@ -17,6 +17,10 @@
 import api from '../services/api';
 
 export default {
+  props: {
+    refreshFn: Function,
+    home: String
+  },
     data() {
         return {
             bookingName: '',
@@ -25,7 +29,9 @@ export default {
     },
     methods: {
       deleteBooking() {
-        api.deleteBooking(this.bookingName, this.arrivalDate);
+        api.deleteBooking(this.bookingName, this.arrivalDate, this.home).then(() => {
+          this.refreshFn();
+        }).catch(error => console.log(error));
       }
     }
 }

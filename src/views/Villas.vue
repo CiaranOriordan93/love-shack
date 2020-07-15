@@ -2,7 +2,7 @@
   <div class="villas">
     <Banner />
     <div class="villas__option">
-        <router-link to="selection/drumboy">
+        <router-link to="selection/Drumboy">
           <div class="villas__option__container-1">
             <img class="villas__option__container-1-img" v-lazy="imgs.drumboy">
           </div>
@@ -22,7 +22,7 @@
     </div>
 
     <div class="villas__option">
-      <router-link to="selection/foxfield">
+      <router-link to="selection/Foxfield">
           <div class="villas__option__container-2">
             <img class="villas__option__container-2-img" v-lazy="imgs.foxfield">
           </div>
@@ -42,7 +42,7 @@
     </div>
 
     <div class="villas__option">
-      <router-link to="selection/cloone">
+      <router-link to="selection/Cloone">
           <div class="villas__option__container-3">
             <img class="villas__option__container-3-img" v-lazy="imgs.cloone">
           </div>
@@ -62,7 +62,7 @@
     </div>
 
     <div class="villas__option">
-      <router-link to="selection/annaduff">
+      <router-link to="selection/Annaduff">
           <div class="villas__option__container-4">
             <img class="villas__option__container-4-img" v-lazy="imgs.annaduff">
           </div>
@@ -82,7 +82,7 @@
     </div>
 
     <div class="villas__option">
-      <router-link to="selection/aughnashelin">
+      <router-link to="selection/Aughnashelin">
           <div class="villas__option__container-5">
             <img class="villas__option__container-5-img" v-lazy="imgs.aughnashelin">
           </div>
