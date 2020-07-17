@@ -20,6 +20,19 @@
     &__date {
         height: 2rem;
         cursor: pointer;
+
+        &-container {
+            position: relative;
+        }
+
+        &-error {
+            position: absolute;
+            font-size: 1.6rem;
+            left: 110%;
+            width: 12rem;
+            color: red;
+            top: 2px;
+        }
     }
 
     &__button {

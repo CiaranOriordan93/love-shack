@@ -18,7 +18,7 @@
     </div>
     <div class="seperator"></div>
     <div class="booking__container">
-      <CreateBooking :arrivalDate="arrivalDate" :departureDate="departureDate" :home="selectedHome" :refreshFn="refresh" v-if="!displayType" />
+      <CreateBooking :arrivalDate="arrivalDate" :departureDate="departureDate" :home="selectedHome" :refreshFn="refresh" v-if="!displayType" :events="calendarOptions.events" />
       <DeleteBooking v-if="displayType" :refreshFn="refresh" :home="selectedHome" />
       <div class="booking__calendar">
         <FullCalendar :options="calendarOptions"/>
@@ -48,7 +48,6 @@ export default {
       calendarOptions: {
         plugins: [dayGridPlugin, interactionPlugin],
         initialView: 'dayGridMonth',
-        dateClick: this.handleDateClick,
         events: []
       },
       arrivalDate: '',
@@ -64,11 +63,6 @@ export default {
     }
   },
   methods: {
-    handleDateClick(info) {
-      if (!this.confirmArrivalButton) {
-        this.arrivalDate = info.dateStr;
-      }else this.departureDate = info.dateStr;
-    },
     refresh() {
       api.getBookings(this.selectedHome).then(result => {
         this.calendarOptions.events = result.data.bookings;
