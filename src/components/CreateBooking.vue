@@ -3,6 +3,7 @@
       <div class="create-booking__name-container">
         <span class="regular-span create-booking__span">Enter your name</span>
         <input v-model="bookingName" type="text" class="create-booking__name" placeholder="Enter your name" />
+        <span class="create-booking__date-error" v-if="nameError">Enter your name</span>
       </div>
       <div class="create-booking__date-container">
         <span class="regular-span create-booking__span">Select your arrival date</span>
@@ -13,6 +14,8 @@
         <span class="regular-span create-booking__span">Select your departure date</span>
         <input v-model="departure" type="date" class="create-booking__date" />
         <span class="create-booking__date-error" v-if="departureError">Invalid date</span>
+        <span class="create-booking__date-error" v-if="dateOrderError">Departure date is after arrival date!</span>
+        
       </div>
       <button class="create-booking__button" @click="makeBooking(bookingName, arrival, departure, home)">Confirm Booking</button>
       <div v-if="confirmation" class="create-booking__confirmation">
@@ -29,8 +32,6 @@ import api from '../services/api'
 
 export default {
     props: {
-        arrivalDate: String,
-        departureDate: String,
         refreshFn: Function,
         home: String,
         events: Array
@@ -43,16 +44,12 @@ export default {
             confirmation: false,
             error: false,
             arrivalError: false,
-            departureError: false
+            departureError: false,
+            dateOrderError: false,
+            nameError: false
         }
     },
     watch: {
-        arrivalDate: function(val) {
-            this.arrival = val;
-        },
-        departureDate: function(val) {
-            this.departure = val;
-        },
         arrival: function() {
             this.dateChecker();
         },
@@ -62,7 +59,7 @@ export default {
     },
     methods: {
         makeBooking(name, arrival, departure, home) {
-            if(!this.arrivalError && !this.departureError) {
+            if(!this.arrivalError && !this.departureError && this.bookingName.length > 0) {
                 api.postBooking(name, arrival, departure, home).then(() => {
                     this.refreshFn();
                 }).catch(() => {
@@ -85,36 +82,57 @@ export default {
             }, 3000)
         },
         dateChecker(){
-            const self = this;
-            const arrivalChecker = this.events.filter(booking => {
-                let a = parseInt(booking.start.split("-").join(""));
-                let b = parseInt(self.arrival.split("-").join(""));
-                return a <= b;
-            });
-            const departureChecker = arrivalChecker.filter(booking => {
-                let a = parseInt(booking.end.split("-").join(""));
-                let b = parseInt(self.arrival.split("-").join(""));
-                return a > b;
-            });
-            const arrivalDate = this.events.filter(booking => {
-                let a = parseInt(booking.start.split("-").join(""));
-                let b = parseInt(self.arrival.split("-").join(""));
-                return a >= b
-            });
-            const departureDate = arrivalDate.filter(booking => {
-                let a = parseInt(booking.end.split("-").join(""));
-                let b = parseInt(self.departure.split("-").join(""));
-                let c = parseInt(booking.start.split("-").join(""));
-                return a > b && c < b;
-            });
-
-            if(departureChecker.length > 0) {
+            const a = this.beforeArrivalCheck();
+            if (a === true) {
                 this.arrivalError = true;
             }else this.arrivalError = false;
 
-            if(departureDate.length > 0) {
+            const b = this.afterArrivalCheck();
+            if (b === true) {
                 this.departureError = true;
             }else this.departureError = false;
+
+            const c = this.dateOrderCheck();
+            if (c === true) {
+                this.dateOrderError = true;
+            }else this.dateOrderError = false;
+            
+        },
+        beforeArrivalCheck() {
+            const self = this;
+            const arrivalChecker = this.events.filter(booking => {
+                const a = parseInt(booking.start.split("-").join(""));
+                const b = parseInt(self.arrival.split("-").join(""));
+                return a <= b;
+            });
+            const departureChecker = arrivalChecker.filter(booking => {
+                const a = parseInt(booking.end.split("-").join(""));
+                const b = parseInt(self.arrival.split("-").join(""));
+                return a > b;
+            });
+            return departureChecker.length > 0 ? true : false;
+        },
+        afterArrivalCheck() {
+            const self = this;
+            const arrivalDate = this.events.filter(booking => {
+                const a = parseInt(booking.start.split("-").join(""));
+                const b = parseInt(self.arrival.split("-").join(""));
+                return a >= b
+            });
+            const departureDate = arrivalDate.filter(booking => {
+                const a = parseInt(booking.end.split("-").join(""));
+                const b = parseInt(self.departure.split("-").join(""));
+                const c = parseInt(booking.start.split("-").join(""));
+                return a > b && c < b;
+            });
+            return departureDate.length > 0 ? true : false;
+        },
+        dateOrderCheck() {
+            const self = this;
+            const a = parseInt(self.arrival.split("-").join(""));
+            const b = parseInt(self.departure.split("-").join(""));
+            
+            return a >= b ? true : false;
         }
     }
 }

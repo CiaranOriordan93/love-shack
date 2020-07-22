@@ -18,7 +18,7 @@
     </div>
     <div class="seperator"></div>
     <div class="booking__container">
-      <CreateBooking :arrivalDate="arrivalDate" :departureDate="departureDate" :home="selectedHome" :refreshFn="refresh" v-if="!displayType" :events="calendarOptions.events" />
+      <CreateBooking :home="selectedHome" :refreshFn="refresh" v-if="!displayType" :events="calendarOptions.events" />
       <DeleteBooking v-if="displayType" :refreshFn="refresh" :home="selectedHome" />
       <div class="booking__calendar">
         <FullCalendar :options="calendarOptions"/>
@@ -50,8 +50,6 @@ export default {
         initialView: 'dayGridMonth',
         events: []
       },
-      arrivalDate: '',
-      departureDate: '',
       displayType: false,
       selectedHome: 'Drumboy',
       homes: ['Drumboy', 'Foxfield', 'Cloone', 'Annaduff', 'Aughnashelin']
