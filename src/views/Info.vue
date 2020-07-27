@@ -24,12 +24,7 @@
                   <li>Price per Week: {{ weeklyPrice }}</li>
                 </ul>
           </div>
-      </div>
-       <div class="info__availability">
-           <div class="info__availability__heading">
-                <h3>Availability</h3>   
-           </div>
-        </div>   
+      </div>   
   </div>
 </template>
 
